@@ -1,6 +1,7 @@
 import './App.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import SurveyForm from './components/pages/SurveyForm';
+import Homepage from './components/pages/Homepage';
 
 const client = new ApolloClient({
   uri: '/graphql',
