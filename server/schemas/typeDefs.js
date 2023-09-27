@@ -7,6 +7,8 @@ const typeDefs = gql`
     choice1: String
     choice2: String
     description: String
+    choice1_votes: Int
+    choice2_votes: Int
   }
 
   type Query {

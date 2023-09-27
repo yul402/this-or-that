@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 // vv imports gql data from queries.js vv
-import { QUERY_CHOICES } from '../utils/queries';
+import { QUERY_CHOICES } from '../../utils/queries';
 
 const Homepage = () => {
   const { loading, data } = useQuery(QUERY_CHOICES, {
@@ -22,7 +22,7 @@ const Homepage = () => {
       </div>
       <div className="card-footer text-center m-3">
         <h2>Create your Survey now!</h2>
-        <Link to="/SurveyForm">
+        <Link to="/create">
           <button className="btn btn-lg btn-danger">Create a Survey</button>
         </Link>
       </div>
