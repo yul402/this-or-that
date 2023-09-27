@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Whether Taco or Nachos",
+    "choice1": "Vege Taco",
+    "choice2": "Cheese Nachos",
+    "description": "What do you prefer?",
+    "choice1_votes": 10,
+    "choice2_votes": 0
+  },
+  {
+    "title": "Hot coffee or Ice tea",
+    "choice1": "Hot coffee from Starbucks",
+    "choice2": "Ice tea from Peet",
+    "description": "Hot drink vs cold drink",
+    "choice1_votes": 10,
+    "choice2_votes": 10
+  }
+]

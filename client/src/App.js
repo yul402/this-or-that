@@ -1,9 +1,11 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import SurveyForm from './components/pages/SurveyForm';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Homepage from './components/pages/Homepage';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -21,16 +23,13 @@ function App() {
           <Router>
             <Routes>
               <Route 
+                path="/" 
+                element={<Homepage />}
+              />
+              <Route 
                 path="/create" 
                 element={<SurveyForm />}
               />
-              {/* <Route 
-                path="/survey/:id" 
-                element={<SurveyForm />}
-              /> */}
-              {/* <Route 
-                path="*"
-                element={<NotFound />} */}
             </Routes>
           </Router>
           </ApolloProvider>
