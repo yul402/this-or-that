@@ -6,6 +6,8 @@ import SurveyForm from './components/pages/SurveyForm';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Homepage from './components/pages/Homepage';
+import Login from './components/pages/Login';
+import Signup from './components/pages/Signup';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -15,12 +17,10 @@ const client = new ApolloClient({
 function App() {
   return (
     <div>
-      {/* Header component*/}
-      <Header/>
-
       {/* Apollo server */}
         <ApolloProvider client={client}>
           <Router>
+          <Header/>
             <Routes>
               <Route 
                 path="/" 
@@ -29,6 +29,14 @@ function App() {
               <Route 
                 path="/create" 
                 element={<SurveyForm />}
+              />
+                <Route 
+                path="/login"
+                element={<Login />}
+              />
+              <Route 
+                path="/signup"
+                element={<Signup />}
               />
             </Routes>
           </Router>
