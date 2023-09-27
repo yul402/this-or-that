@@ -43,67 +43,79 @@ const SurveyForm = () => {
   };
 
   return (
-    <div className="card bg-white card-rounded w-25">
-      <div className="card-header bg-dark text-center">
-        <h1>Let's create a survey!</h1>
-      </div>
-      <div className="card-body m-5">
-        {/* {loading ? (
-          <div>Loading...</div>
-        ) : ( */}
+    <div className="d-flex justify-content-center">
+      <div className="card bg-white card-rounded w-25">
+        <div className="card-header text-center">
+            <h1>Let's create a survey!</h1>
+        </div>
+        <div>
           <form onSubmit={handleFormSubmit}>
-          {/* <form> */}
-            <label>Title:</label>
-            <input
-              // value={userInfo.username}
-              name="title"
-              onChange={handleInputChange}
-              // onBlur={validateField}
-              type="text"
-              placeholder="title"
-              // className = {errorMessage.username ? 'error' : '' }
-            />
+            <div className="form-group p-4">
+              <label>Title</label>
+                <input
+                  className="form-control"
+                  name="title"
+                  onChange={handleInputChange}
+                  // onBlur={validateField}
+                  type="text"
+                  placeholder="title"
+                  // className = {errorMessage.username ? 'error' : '' }
+                />
+              <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
 
-            <label>Choice 1:</label>
-            <input
-              // value={userInfo.username}
-              name="choice1"
-              onChange={handleInputChange}
-              // onBlur={validateField}
-              type="text"
-              placeholder="choice1"
-              // className = {errorMessage.username ? 'error' : '' }
-            />
+            <div className="form-group p-4">
+              <label>Choice 1</label>
+              <input
+                className="form-control"
+                name="choice1"
+                onChange={handleInputChange}
+                // onBlur={validateField}
+                type="text"
+                placeholder="choice1"
+                // className = {errorMessage.username ? 'error' : '' }
+              />
+              <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
 
-            <label>choice 2:</label>
-            <input
-              // value={userInfo.username}
-              name="choice2"
-              onChange={handleInputChange}
-              // onBlur={validateField}
-              type="text"
-              placeholder="choice2"
-              // className = {errorMessage.username ? 'error' : '' }
-            />
+            <div className="form-group p-4">
+              <label>choice 2</label>
+              <input
+                className="form-control"
+                name="choice2"
+                onChange={handleInputChange}
+                // onBlur={validateField}
+                type="text"
+                placeholder="choice2"
+                // className = {errorMessage.username ? 'error' : '' }
+              />
+              <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
 
-            <label>Description:</label>
-            <input
-              // value={userInfo.username}
-              name="description"
-              onChange={handleInputChange}
-              // onBlur={validateField}
-              type="text"
-              placeholder="description"
-              // className = {errorMessage.username ? 'error' : '' }
-            />
-            <button className="btn btn-danger" type="submit">
-              Create Matchup!
-            </button>
+            <div class="form-group p-4">
+              <label>Description</label>
+              <textarea
+                className="form-control"
+                name="description"
+                onChange={handleInputChange}
+                // onBlur={validateField}
+                type="text"
+                placeholder="description"
+                row="5"
+                // className = {errorMessage.username ? 'error' : '' }
+              />
+              <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div className="d-flex justify-content-center">
+              <button className="btn btn-danger p-2 m-2" type="submit">
+                Create Survey!
+              </button>
+            </div>
           </form>
-        {/* )} */}
       </div>
-      {/* {error && <div>Something went wrong...</div>} */}
+        {/* {error && <div>Something went wrong...</div>} */}
     </div>
+  </div>
   );
 };
 

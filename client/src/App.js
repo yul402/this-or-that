@@ -1,6 +1,9 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import SurveyForm from './components/pages/SurveyForm';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -9,14 +12,32 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <div>
-        <p>
-          Test Interface
-        </p>
-        <SurveyForm/>
-      </div>
-    </ApolloProvider>
+    <div>
+      {/* Header component*/}
+      <Header/>
+
+      {/* Apollo server */}
+        <ApolloProvider client={client}>
+          <Router>
+            <Routes>
+              <Route 
+                path="/create" 
+                element={<SurveyForm />}
+              />
+              {/* <Route 
+                path="/survey/:id" 
+                element={<SurveyForm />}
+              /> */}
+              {/* <Route 
+                path="*"
+                element={<NotFound />} */}
+            </Routes>
+          </Router>
+          </ApolloProvider>
+
+        {/* Footer component */}
+        <Footer/>
+    </div>
 )}
 
 export default App;
