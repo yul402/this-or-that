@@ -1,6 +1,8 @@
+import { gql } from '@apollo/client';
+
 export const QUERY_CHOICES = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+  query survey{
+    survey {
       _id
       choice1
       choice2

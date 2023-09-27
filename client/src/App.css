@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.form input,
+textarea {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+footer {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: center;
+  bottom: 0;
+  font-size: 20px;
+}
