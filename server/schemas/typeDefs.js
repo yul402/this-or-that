@@ -23,12 +23,16 @@ const typeDefs = gql`
 
   type Query {
     survey: [Survey]
+    singleSurvey(_id: String): [Survey]
   }
 
   # Define which mutations the client is allowed to make
   type Mutation {
     # Set the required fields for new survey
     createSurvey(title: String!, choice1: String!, choice2: String!,description: String!): Survey
+
+    updateVote(_id: String!, choiceNum: Int!): Survey
+
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
   }

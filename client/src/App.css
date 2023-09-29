@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -26,16 +26,16 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 .form input,
 textarea {
@@ -52,4 +52,8 @@ footer {
   justify-content: center;
   bottom: 0;
   font-size: 20px;
+}
+
+h1 {
+  text-align: center;
 }
