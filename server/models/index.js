@@ -1,3 +1,3 @@
 const Survey = require('./Survey');
-
-module.exports = { Survey };
+const User = require('./User');
+module.exports = { Survey, User };

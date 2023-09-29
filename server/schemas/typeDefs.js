@@ -10,6 +10,16 @@ const typeDefs = gql`
     choice1_votes: Int
     choice2_votes: Int
   }
+  type Auth {
+    token: ID!
+    user: User
+  }
+  type User {
+    _id: ID
+    username: String
+    email: String
+    password: String
+  }
 
   type Query {
     survey: [Survey]
@@ -19,6 +29,8 @@ const typeDefs = gql`
   type Mutation {
     # Set the required fields for new survey
     createSurvey(title: String!, choice1: String!, choice2: String!,description: String!): Survey
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 
