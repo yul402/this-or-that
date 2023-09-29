@@ -10,10 +10,9 @@ const Homepage = () => {
     fetchPolicy: "no-cache",
   });
 
-  {
-    /* Create variable for survey data from QUERY_CHOICES here */
-  }
-
+  
+const choiceList = data?.survey|| [];
+ 
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
@@ -21,7 +20,20 @@ const Homepage = () => {
       </div>
       <div className="card-body m-5">
         <h2>Choose your survey:</h2>
-        {/* Survey Data / Titles here */}
+        {loading ? (
+          <div>Loading...</div>
+        ): (<ul className="square">
+        {choiceList.map((choice) => {
+          return (
+            <li key={choice._id}>
+              <Link to={{ pathname: `/survey/${choice._id}` }}>
+                {choice.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    )}
       </div>
       <div className="card-footer text-center m-3">
         <h2>Create your Survey now!</h2>

@@ -9,6 +9,7 @@ export const QUERY_CHOICES = gql`
       description
       choice1_votes
       choice2_votes
+      title
     }
   }
 `;
