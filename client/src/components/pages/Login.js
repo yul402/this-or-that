@@ -53,7 +53,8 @@ const Login = (props) => {
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
-                <input
+                <div class="d-grid gap-2 col-6 mx-auto">
+                <input 
                   className="form-input"
                   placeholder="Your email"
                   name="email"
@@ -69,13 +70,15 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
+                
+                <button class="row center btn btn-primary "
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
                   Submit
                 </button>
+                </div>
               </form>
             )}
 
