@@ -5,7 +5,11 @@ const resolvers = {
   Query: {
     survey: async () => {
       return Survey.find({});
-    }
+    },
+    singleSurvey: async (parent, { _id }) => {
+      const params = _id ? { _id } : {};
+      return Survey.find(params);
+    },
   },
   Mutation: {
     createSurvey: async (parent, args) => {
@@ -13,6 +17,16 @@ const resolvers = {
       const survey = await Survey.create(args);
       return survey;
     },
+
+    updateVote: async (parent, { _id, choiceNum }) => {
+      const vote = await Survey.findOneAndUpdate(
+        { _id },
+        { $inc: { [`choice${choiceNum}_votes`]: 1 } },
+        { new: true }
+      );
+      return vote;
+    },
+
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
@@ -35,6 +49,7 @@ const resolvers = {
 
       return { token, user };
     }
+
   },
 };
 
