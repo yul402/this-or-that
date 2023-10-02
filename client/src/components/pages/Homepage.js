@@ -15,10 +15,10 @@ const choiceList = data?.survey|| [];
  
   return (
     <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
+      <div className="card-header text-center">
         <h1>This or That!</h1>
       </div>
-      <div className="card-body m-5">
+      <div className="card-body m-5 text-center">
         <h2>Choose your survey:</h2>
         {loading ? (
           <div>Loading...</div>

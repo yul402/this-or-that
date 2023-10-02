@@ -9,9 +9,7 @@ function Header(){
   return(
     <nav className="navbar navbar-light bg-light">
         {/* <a class="navbar-brand" href="#">This Or That</a> */}
- 
-
-        <h1 class="navbar-brand">This Or That</h1> 
+        <a class="navbar-brand justify-content-center px-3" href="/">This Or That</a> 
         <div>
           {Auth.loggedIn() ? (
             <>
