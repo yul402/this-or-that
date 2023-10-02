@@ -14,7 +14,8 @@ const Homepage = () => {
 const choiceList = data?.survey|| [];
  
   return (
-    <div className="card bg-white card-rounded w-50">
+    <div className="container mt-5">
+    <div className="card bg-white card-rounded">
       <div className="card-header text-center">
         <h1>This or That!</h1>
       </div>
@@ -43,6 +44,7 @@ const choiceList = data?.survey|| [];
           </Link>
         )}
       </div>
+    </div>
     </div>
   );
 };
