@@ -51,6 +51,7 @@ const Signup = () => {
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <div class="d-grid gap-2 col-6 mx-auto">
                 <input
                   className="form-input"
                   placeholder="Your username"
@@ -82,6 +83,7 @@ const Signup = () => {
                 >
                   Submit
                 </button>
+                </div>
               </form>
             )}
 
