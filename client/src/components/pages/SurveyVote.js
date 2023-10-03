@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_SINGLE_SURVEY } from '../../utils/queries';
 import { UPDATE_VOTE } from '../../utils/mutations';
+import { Chart } from 'chart.js'
+import { useState } from 'react';
 
 
 const SurveyVote = () => {
+    //setting userdata for Bar Chart
+    const [userData, setUserData] = useState({})
+
     // Query a specific survey's information with id 
     let { id } = useParams();
     const { loading, data } = useQuery(QUERY_SINGLE_SURVEY, {
       variables: { _id: id },
     });
+
+    useEffect (()=> {
+      if (!loading && data) {setUserData ({
+        labels: [data.choice1, data.choice2],
+        datasets: [{
+          label: "Votes",
+          data: [data.choice1_votes, data.choice2_votes]
+      }]
+    })}}, [data]
+    )
 
     // Store returned data into variables
     const singleSurvey = data?.singleSurvey || [];
@@ -56,6 +71,7 @@ const SurveyVote = () => {
               <button className="btn btn-info" onClick={() => handleVote(2)}>
                 Vote for {singleSurvey[0].choice2}
               </button>
+              <div> <Chart chartData={userData} /> </div>
               <div className="card-footer text-center m-3">
                 <br></br>
                 <Link to="/">
