@@ -57,3 +57,8 @@ footer {
 h1 {
   text-align: center;
 }
+
+.icon {
+  margin:5px;
+  cursor:pointer;
+}

@@ -15,6 +15,20 @@ export const CREATE_SURVEY = gql`
   }
 `;
 
+export const DELETE_SURVEY = gql`
+  mutation deleteSurvey($_id: String!) {
+    deleteSurvey(_id: $_id) {
+      _id
+      title
+      description
+      choice1
+      choice2
+      choice1_votes
+      choice2_votes
+    }
+  }
+`;
+
 
 export const UPDATE_VOTE = gql`
   mutation updateVote($_id: String!, $choiceNum: Int!) {

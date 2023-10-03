@@ -17,6 +17,21 @@ const resolvers = {
       const survey = await Survey.create(args);
       return survey;
     },
+    
+    deleteSurvey:async (parent, args) => {
+      console.log(args)
+      return Survey.findByIdAndDelete(args);
+
+      // let ID = parseInt(id)
+      // messages = messages.filter((message) => message.id !== ID);
+      // return id;
+
+      // const userThought = await User.findOneAndUpdate(
+      //   { thoughts: req.params.thoughtId },
+      //   { $pull: { thoughts: req.params.thoughtId } },
+      //   { new: true }
+      // );
+    },
 
     updateVote: async (parent, { _id, choiceNum }) => {
       const vote = await Survey.findOneAndUpdate(
@@ -32,6 +47,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

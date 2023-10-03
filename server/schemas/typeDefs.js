@@ -30,7 +30,7 @@ const typeDefs = gql`
   type Mutation {
     # Set the required fields for new survey
     createSurvey(title: String!, choice1: String!, choice2: String!,description: String!): Survey
-
+    deleteSurvey(_id: String!): Survey
     updateVote(_id: String!, choiceNum: Int!): Survey
 
     addUser(username: String!, email: String!, password: String!): Auth
