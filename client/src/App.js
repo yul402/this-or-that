@@ -5,6 +5,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Homepage from "./components/pages/Homepage";
+import Background from './components/pages/Background';
 
 import SurveyForm from "./components/pages/SurveyForm";
 import SurveyVote from "./components/pages/SurveyVote";
@@ -22,6 +23,7 @@ function App() {
     <div>
       {/* Apollo server */}
       <ApolloProvider client={client}>
+      <Background />
         <Router>
           <Header />
           <Routes>
