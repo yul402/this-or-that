@@ -4,7 +4,6 @@ import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_SINGLE_SURVEY } from '../../utils/queries';
 import { UPDATE_VOTE } from '../../utils/mutations';
 
-
 const SurveyVote = () => {
     // Query a specific survey's information with id 
     let { id } = useParams();
@@ -37,7 +36,7 @@ const SurveyVote = () => {
             <div>Loading...</div>
           ) : (
             <div className="card-body text-center mt-3">
-              <h1>Title:{singleSurvey[0].title}</h1>
+              <h1>Title: {singleSurvey[0].title}</h1>
               <div className="card bg-white card-rounded m-3">
                 <p style={{fontSize: "25px"}}>Description: {singleSurvey[0].description}</p>
               </div>
