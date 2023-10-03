@@ -1,6 +1,6 @@
 // vv necessary imports to link data from db vv
 import { Link } from "react-router-dom";
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
 // vv imports gql data from queries.js vv
 import { QUERY_CHOICES } from "../../utils/queries";
@@ -10,40 +10,45 @@ const Homepage = () => {
     fetchPolicy: "no-cache",
   });
 
-  
-const choiceList = data?.survey|| [];
- 
+  const choiceList = data?.survey || [];
+
   return (
     <div className="container mt-5">
-    <div className="card bg-white card-rounded">
-      <div className="card-header text-center">
-        <h1>Choose your survey below!</h1>
-      </div>
-      <div className="card-body m-5 text-center">
-        {loading ? (
-          <div>Loading...</div>
-        ): (<ul className="square">
-        {choiceList.map((choice) => {
-          return (
-            <ul  key={choice._id}>
-              <Link to={{ pathname: `/survey/${choice._id}` }}>
-                {choice.title}
-              </Link>
+      <div className="card bg-white card-rounded">
+      <div className="card-header text-center bg-primary">
+    <h1 style={{ color: 'white', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+        Choose your survey below!
+    </h1>
+</div>
+
+
+        <div className="card-body m-5 text-center">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <ul className="square">
+              {choiceList.map((choice) => {
+                return (
+                  <ul key={choice._id}>
+                    <Link to={{ pathname: `/survey/${choice._id}` }}>
+                      {choice.title}
+                    </Link>
+                  </ul>
+                );
+              })}
             </ul>
-          );
-        })}
-      </ul>
-    )}
+          )}
+        </div>
+        <div className="card-footer text-center m-3">
+          <h4 style={{  fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+          Please Log In to create a Survey!</h4>
+          {Auth.loggedIn() && (
+            <Link to="/create">
+              <button className="btn btn-lg btn-danger">Create a Survey</button>
+            </Link>
+          )}
+        </div>
       </div>
-      <div className="card-footer text-center m-3">
-        <h4>Please Log In to create a Survey!</h4>
-        {Auth.loggedIn() && (
-          <Link to="/create">
-            <button className="btn btn-lg btn-danger">Create a Survey</button>
-          </Link>
-        )}
-      </div>
-    </div>
     </div>
   );
 };
