@@ -17,27 +17,26 @@ const choiceList = data?.survey|| [];
     <div className="container mt-5">
     <div className="card bg-white card-rounded">
       <div className="card-header text-center">
-        <h1>This or That!</h1>
+        <h1>Choose your survey below!</h1>
       </div>
       <div className="card-body m-5 text-center">
-        <h2>Choose your survey:</h2>
         {loading ? (
           <div>Loading...</div>
         ): (<ul className="square">
         {choiceList.map((choice) => {
           return (
-            <li key={choice._id}>
+            <ul  key={choice._id}>
               <Link to={{ pathname: `/survey/${choice._id}` }}>
                 {choice.title}
               </Link>
-            </li>
+            </ul>
           );
         })}
       </ul>
     )}
       </div>
       <div className="card-footer text-center m-3">
-        <h2>Create your Survey now!</h2>
+        <h4>Please Log In to create a Survey!</h4>
         {Auth.loggedIn() && (
           <Link to="/create">
             <button className="btn btn-lg btn-danger">Create a Survey</button>
